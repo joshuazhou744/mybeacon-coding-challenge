@@ -1,9 +1,13 @@
-import Chatbot from './pages/Chatbot';
+// page.tsx
+import Chatbot from './components/Chatbot';
+import './styles/globals.css';
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <div className="">
       <Chatbot />
     </div>
   );
 }
+
+export default Home;

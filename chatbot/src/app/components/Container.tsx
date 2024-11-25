@@ -1,3 +1,5 @@
+// Container.tsx
+import styles from '../styles/Container.module.css';
 
 interface Props {
     title: string;
@@ -5,14 +7,14 @@ interface Props {
     children?: React.ReactNode;
 }
 
-export default function Container({title, description, children}: Props) {
+const Container: React.FC<Props> = ({title, description, children}) => {
   return (
-    <div>
-      <h1>{title}</h1>
-        <div>
-            <p>{description}</p>
-            {children}
-        </div>
+    <div className={styles.container}>
+      {title && <h1 className={styles.title}>{title}</h1>}
+      <p className={styles.description}>{description}</p>
+      <div className={styles.content}>{children}</div>
     </div>
   )
 }
+
+export default Container;

@@ -1,0 +1,21 @@
+
+.userMsg {
+align-self: flex-end;
+background-color: #3182ce;
+color: white;
+padding: 10px 15px;
+border-radius: 20px;
+margin: 5px 0;
+max-width: 80%;
+}
+  
+.botMsg {
+align-self: flex-start;
+background-color: #e2e8f0;
+color: #2d3748;
+padding: 10px 15px;
+border-radius: 20px;
+margin: 5px 0;
+max-width: 80%;
+}
+  
