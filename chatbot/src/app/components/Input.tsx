@@ -3,6 +3,8 @@ import { useState } from 'react';
 import styles from '../styles/Input.module.css';
 import Chat from './Chat';
 import { v4 as uuidv4 } from 'uuid';
+import { sendMessage } from '../services/api';
+import {ClipLoader} from "react-spinners";
 
 interface MessageType {
     id: string;
@@ -31,7 +33,7 @@ const Input: React.FC = () => {
         setIsLoading(true);
 
         try {
-            const botResponse = await simulateBotResponse(input);
+            const botResponse = await sendMessage(input);
             const botMessage: MessageType = {
                 id: uuidv4(),
                 text: botResponse,
@@ -52,15 +54,6 @@ const Input: React.FC = () => {
         }
     }
 
-    const simulateBotResponse = (userInput: string): Promise<string> => {
-        return new Promise((resolve) => {
-            console.log(userInput)
-            setTimeout(() => {
-            resolve("I'm here to help with your immigration questions!");
-            }, 1000);
-        });
-    };
-
     return (
         <div className={styles.inputContainer}>
             <Chat messages={messages} />
@@ -75,6 +68,12 @@ const Input: React.FC = () => {
                 <button type="submit" className={styles.button} disabled={isLoading}>
                     Send
                 </button>
+                {isLoading && (
+                    <div className={styles.loadingContainer}>
+                    <ClipLoader size={20} color="#3182ce" />
+                    <span className={styles.loadingText}>Bot is typing...</span>
+                    </div>
+                )}
             </form>
         </div>
     )

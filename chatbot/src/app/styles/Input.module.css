@@ -34,4 +34,8 @@
   background-color: #a0aec0;
   cursor: not-allowed;
 }
-  
+
+.typeLoader {
+  background-color: #a0aec0;
+  border-radius: 10px;
+}

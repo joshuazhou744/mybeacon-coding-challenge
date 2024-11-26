@@ -19,7 +19,7 @@ const Chat: React.FC<Props> = ({messages}) => {
 
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-        console.log(messages)
+        // console.log(messages)
     }, [messages]);
     
     return (
