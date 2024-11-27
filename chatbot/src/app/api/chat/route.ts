@@ -1,7 +1,7 @@
 // route.ts
-
 import { NextRequest, NextResponse } from 'next/server';
 import { OpenAI } from 'openai';
+import { ChatCompletionMessageParam } from 'openai/resources/index.mjs';
 
 const openai = new OpenAI({ apiKey: process.env.API_KEY });
 
@@ -13,6 +13,12 @@ interface ChatResponse {
     reply?: string;
     error?: string;
 }
+
+const promptMessage: ChatCompletionMessageParam = {
+    role: "system",
+    content: "You are a helpful assistant that assists prospective immigrant moving to Canada from around the world."
+}
+const sessionMessages = <ChatCompletionMessageParam[]>[promptMessage];
 
 export async function POST(
     req: NextRequest
@@ -31,22 +37,19 @@ export async function POST(
                 { status: 400 }
             );
         }
+        const userMessage: ChatCompletionMessageParam = {
+            role: "user",
+            content: message
+        }
+        sessionMessages.push(userMessage);
 
         const completion = await openai.chat.completions.create({
             model: 'gpt-4o-mini',
-            messages: [
-                { role: "system", content: "You are a helpful assistant that assists prospective immigrant moving to Canada from around the world." },
-                {
-                    role: "user",
-                    content: message,
-                },
-            ],
-            max_tokens: 150,
+            messages: sessionMessages,
             temperature: 0.7,
         });
 
         const botReply = completion.choices[0].message.content;
-        console.log(botReply);
 
         if (!botReply) {
             return NextResponse.json(
@@ -55,8 +58,21 @@ export async function POST(
             );
         }
 
-        return NextResponse.json({ reply: botReply }, { status: 200 });
+        const botMessage: ChatCompletionMessageParam = {
+            role: "user",
+            content: botReply
+        }
+        sessionMessages.push(botMessage);
 
+        if (!botReply) {
+            return NextResponse.json(
+                { error: 'No response from OpenAI.' },
+                { status: 500 }
+            );
+        }
+        const response = NextResponse.json({ reply: botReply }, { status: 200 });
+        console.log(sessionMessages)
+        return response;
     } catch (error) {
         console.error("Error: ", error);
         return NextResponse.json(

@@ -1,5 +1,7 @@
 import styles from "../styles/Message.module.css";
-
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from "remark-gfm";
+import rehypeSanitize from "rehype-sanitize";
 
 interface MessageType {
     id: string;
@@ -16,7 +18,13 @@ const Message: React.FC<Props> = ({message}) => {
     <div className={
         message.sender == "user" ? styles.userMsg: styles.botMsg
       }>
-        {message.text}
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeSanitize]}
+          className={styles.message}
+        >
+          {message.text}
+        </ReactMarkdown>
     </div>
   )
 }

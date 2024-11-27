@@ -8,7 +8,6 @@ export const sendMessage = async (message: string): Promise<string> => {
     try {
         const response = await axios.post(`${API_URL}/chat`, { message });
         if (response.data.reply) {
-            console.log(response.data.reply);
             return response.data.reply;
         } else {
             throw new Error(response.data.error || 'API Error');

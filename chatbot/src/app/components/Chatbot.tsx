@@ -4,7 +4,7 @@ import Input from "./Input";
 
 
 const Chatbot: React.FC = () => {
-  const description = "This is a simple AI chatbot that can help you with your queries regarding immigration. Ask anything and it will try to help you with the best possible answer.";
+  const description = "This simple AI chatbot will help you with your queries regarding immigration to Canada. Ask away!";
 
   return (
     <Container title="BeaconBot" description={description}>

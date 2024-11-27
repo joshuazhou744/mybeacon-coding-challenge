@@ -65,13 +65,15 @@ const Input: React.FC = () => {
                     className={styles.input}
                     placeholder="Type your message..."
                 />
-                <button type="submit" className={styles.button} disabled={isLoading}>
-                    Send
-                </button>
+                {!isLoading && (
+                    <button type="submit" className={styles.button} disabled={isLoading}>
+                        Send
+                    </button>
+                )}
                 {isLoading && (
                     <div className={styles.loadingContainer}>
-                    <ClipLoader size={20} color="#3182ce" />
-                    <span className={styles.loadingText}>Bot is typing...</span>
+                        <ClipLoader size={20} color="#3182ce" />
+                        <span className={styles.loadingText}>Generating...</span>
                     </div>
                 )}
             </form>

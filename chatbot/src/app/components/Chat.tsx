@@ -25,7 +25,7 @@ const Chat: React.FC<Props> = ({messages}) => {
     return (
         <div className={styles.chatContainer}>
             {messages.length == 0 ? (
-                <div className={styles.noMessage}>Start the conversation</div>
+                <div className={styles.noMessage}></div>
             ) : (
                 messages.map((msg) => <Message key={msg.id} message={msg} />)
             )}
