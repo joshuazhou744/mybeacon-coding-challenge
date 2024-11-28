@@ -12,7 +12,7 @@ interface MessageType {
     sender: 'user' | 'bot';
 }
 
-const Input: React.FC = () => {
+const Input = (): JSX.Element => {
     const [input, setInput] = useState<string>('');
     const [messages, setMessages] = useState<MessageType[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);

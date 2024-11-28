@@ -13,10 +13,9 @@ interface Props {
     messages: MessageType[];
 }
 
-const Chat: React.FC<Props> = ({messages}) => {
+const Chat = ({messages}: Props): JSX.Element => {
 
     const chatEndRef = useRef<HTMLDivElement | null>(null);
-
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
         // console.log(messages)

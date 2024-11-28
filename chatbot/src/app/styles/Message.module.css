@@ -21,4 +21,22 @@
     padding: 0px 20px;
     word-wrap: break-word;
 }
+
+/* responsive styles */
   
+
+@media (max-width: 768px) {
+    .message {
+      font-size: 14px;
+      padding: 2px 14px;
+      max-width: 90%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .message {
+      font-size: 13px;
+      padding: 4px 14px;
+      max-width: 100%;
+    }
+  }

@@ -7,7 +7,7 @@ interface Props {
     children?: React.ReactNode;
 }
 
-const Container: React.FC<Props> = ({title, description, children}) => {
+const Container = ({title, description, children}: Props): JSX.Element => {
   return (
     <div className={styles.container}>
       {title && <h1 className={styles.title}>{title}</h1>}

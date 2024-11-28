@@ -71,7 +71,6 @@ export async function POST(
             );
         }
         const response = NextResponse.json({ reply: botReply }, { status: 200 });
-        console.log(sessionMessages)
         return response;
     } catch (error) {
         console.error("Error: ", error);

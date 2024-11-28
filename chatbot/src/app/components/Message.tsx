@@ -4,16 +4,16 @@ import remarkGfm from "remark-gfm";
 import rehypeSanitize from "rehype-sanitize";
 
 interface MessageType {
-    id: string;
-    text: string;
-    sender: 'user' | 'bot';
-  }
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+}
   
 interface Props {
-message: MessageType;
+  message: MessageType;
 }
 
-const Message: React.FC<Props> = ({message}) => {
+const Message = ({message}: Props): JSX.Element => {
   return (
     <div className={
         message.sender == "user" ? styles.userMsg: styles.botMsg

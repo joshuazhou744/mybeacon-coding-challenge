@@ -27,4 +27,15 @@
     flex-direction: column;
     gap: 20px;
   }
+
+  @media (max-width: 768px) {
+    .container {
+      max-width: 75vw;
+    }
+  }
   
+  @media (max-width: 480px) {
+    .container {
+      max-width: 80vw;
+    }
+  }

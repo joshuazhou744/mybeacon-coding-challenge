@@ -17,4 +17,20 @@
   color: #a0aec0;
 }
 
+/* responsize styles */
+
+@media (max-width: 768px) {
+  .chatContainer {
+    height: 450px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatContainer {
+    height: 450px;
+    padding: 10px;
+  }
+}
+
   
