@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import styles from '../styles/Chat.module.css';
 import Message from './Message';
+import TypingBubble from './TypingBubble';
 
 interface MessageType {
     id: string;
@@ -11,9 +12,10 @@ interface MessageType {
 
 interface Props {
     messages: MessageType[];
+    isLoading: boolean;
 }
 
-const Chat = ({messages}: Props): JSX.Element => {
+const Chat = ({messages, isLoading}: Props): JSX.Element => {
 
     const chatEndRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
@@ -29,6 +31,7 @@ const Chat = ({messages}: Props): JSX.Element => {
                 messages.map((msg) => <Message key={msg.id} message={msg} />)
             )}
             <div ref={chatEndRef} />
+            {isLoading && <TypingBubble/>}
         </div>
     )
 

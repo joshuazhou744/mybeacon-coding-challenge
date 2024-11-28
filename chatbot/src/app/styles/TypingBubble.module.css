@@ -1,0 +1,18 @@
+.typingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    border-radius: 17px;
+    background-color: #e2e8f0;
+    gap: 5px;
+    max-width: 34px;
+    padding: 10px 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #555;
+    border-radius: 50%;
+}

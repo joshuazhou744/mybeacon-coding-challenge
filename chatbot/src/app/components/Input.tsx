@@ -56,7 +56,7 @@ const Input = (): JSX.Element => {
 
     return (
         <div className={styles.inputContainer}>
-            <Chat messages={messages} />
+            <Chat messages={messages} isLoading={isLoading} />
             <form onSubmit={handleSend} className={styles.form}>
                 <input
                     type="text"
