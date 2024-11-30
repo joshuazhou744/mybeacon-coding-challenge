@@ -13,11 +13,11 @@ interface MessageType {
 }
 
 const Input = (): JSX.Element => {
-    const [input, setInput] = useState<string>('');
-    const [messages, setMessages] = useState<MessageType[]>([]);
-    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [input, setInput] = useState<string>(''); // user input state
+    const [messages, setMessages] = useState<MessageType[]>([]); // all messages state
+    const [isLoading, setIsLoading] = useState<boolean>(false); // loading state for conditional renders
 
-    const handleSend = async (e: React.FormEvent) => {
+    const handleSend = async (e: React.FormEvent) => { // send user messages to the bot
         e.preventDefault();
 
         if (input.trim() == '') {
@@ -72,7 +72,7 @@ const Input = (): JSX.Element => {
                 )}
                 {isLoading && (
                     <div className={styles.loadingContainer}>
-                        <ClipLoader size={20} color="#3182ce" />
+                        <ClipLoader size={20} color="#FF0000" />
                         <span className={styles.loadingText}>Generating...</span>
                     </div>
                 )}

@@ -17,9 +17,13 @@
   border-radius: 14px;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .button {
   padding: 20px 20px;
-  background-color: #3182ce;
+  background-color: #FF0000;
   color: white;
   border: none;
   border-radius: 7px;
@@ -27,7 +31,7 @@
 }
 
 .button:hover {
-  background-color: #2b6cb0;
+  background-color: #A24857;
 }
 
 .button:disabled {
@@ -49,7 +53,7 @@
 
 .loadingText {
   font-size: 14px;
-  color: #3182ce;
+  color: #FF0000;
   margin-left: 10px;
   animation: fadeIn 1s ease-in-out infinite;
 }

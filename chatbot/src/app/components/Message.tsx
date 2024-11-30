@@ -18,7 +18,7 @@ const Message = ({message}: Props): JSX.Element => {
     <div className={
         message.sender == "user" ? styles.userMsg: styles.botMsg
       }>
-        <ReactMarkdown
+        <ReactMarkdown // allow markdown formatting in the message
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeSanitize]}
           className={styles.message}

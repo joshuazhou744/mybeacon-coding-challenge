@@ -1,0 +1,75 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 15vw;
+  background-color: #B88E72;
+  color: #fff;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease-in-out;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  background-color: #5a0000;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button {
+  margin: 30px 20px 0 20px;
+  padding: 10px 15px;
+  background-color: #5a0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+.button:hover {
+  background-color: #7a0000;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 25vw;
+  }
+
+  .newSession {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50vw;
+  }
+
+  .header {
+    padding: 8px 15px;
+  }
+
+  .newSession {
+    font-size: 0.8rem; /* Further reduce font size */
+    padding: 6px 10px;
+  }
+}
