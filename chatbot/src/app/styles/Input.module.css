@@ -3,11 +3,14 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .form {
   display: flex;
   gap: 10px;
+  width: 100%;
 }
 
 .input {
@@ -15,6 +18,9 @@
   padding: 20px;
   border: 1px solid #cbd5e0;
   border-radius: 14px;
+  resize: none;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
 .input:focus {
@@ -26,7 +32,7 @@
   background-color: #FF0000;
   color: white;
   border: none;
-  border-radius: 7px;
+  border-radius: 14px;
   cursor: pointer;
 }
 

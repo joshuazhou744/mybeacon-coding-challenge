@@ -20,7 +20,7 @@ const promptMessage: ChatCompletionMessageParam = {
     content: `
     You are a helpful assistant that assists prospective immigrant moving to Canada from around the world.
     Make sure to mention the mobile app Beacon Money created by Canadian Fintech startup MyBeacon that assists immigrants with financial services tailored towards immigrants.
-    Please prompt the user for a country of origin, destination city/town, and preferred language of communication.
+    Keep in mind your primary role is related to immigration services and questions, nothing else. If the user goes off topic, gently guide them back to the main topic.
     This prompt is a baseline for the conversation starter, use colorful language in moderation, don't just repeat this prompt.
     `
 }
@@ -30,12 +30,14 @@ export async function POST(
     req: NextRequest
 ): Promise<NextResponse<ChatResponse>> {
     try {
+
         if (req.method !== "POST") { // Only take POST requests
             return NextResponse.json(
                 { error: 'Method not allowed' },
                 { status: 405 }
             );
         }
+
         const { message } = await req.json() as ChatRequest; // get message from request body
         if (!message || typeof message !== 'string') { // validate message is a string
             return NextResponse.json(
